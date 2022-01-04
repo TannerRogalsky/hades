@@ -3,7 +3,19 @@ name = "hades"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz"]
+
+[package.metadata.wasm-pack.profile.profiling]
+wasm-opt = false
+
+[profile.release]
+lto = "fat"         # turn on Link-Time Optimizations
+codegen-units = 1   # trade compile time with maximum optimization
+opt-level = "z"     # optimize for size
 
 [features]
 web = ["wasm-bindgen"]
