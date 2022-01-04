@@ -21,7 +21,7 @@ opt-level = "z"     # optimize for size
 web = ["wasm-bindgen"]
 
 [dependencies]
-luabins = { path = "../luabins" }
+luabins = "0.1"
 nom = "7.1"
 #lz4_flex = "0.9"
 lz4_flex = { git = "https://github.com/TannerRogalsky/lz4_flex", branch = "uncompressed-size-is-max" }
